@@ -15,19 +15,9 @@ import {
   Mail,
   MapPin,
 } from 'lucide-react'
-
+import PublicNavbar from '@/components/layout/PublicNavbar'
 export default function PVCDoorLanding() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
   const [activeTestimonial, setActiveTestimonial] = useState(0)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
 
   const products = [
     {
@@ -130,76 +120,6 @@ export default function PVCDoorLanding() {
   return (
     <div className='min-h-screen bg-stone-50 text-stone-900'>
       {/* Header */}
-      <header
-        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-          isScrolled ? 'bg-white shadow-md py-3' : 'bg-transparent py-5'
-        }`}
-      >
-        <div className='max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between'>
-          <div className='text-2xl font-bold text-amber-800'>WoodLook PVC</div>
-
-          <nav className='hidden md:flex items-center gap-8'>
-            <a href='#products' className='hover:text-amber-700 transition'>
-              Products
-            </a>
-            <a href='#features' className='hover:text-amber-700 transition'>
-              Features
-            </a>
-            <a href='#testimonials' className='hover:text-amber-700 transition'>
-              Reviews
-            </a>
-            <a
-              href='#contact'
-              className='bg-emerald-700 text-white px-6 py-2.5 rounded-lg hover:bg-emerald-800 transition'
-            >
-              Get Free Quote
-            </a>
-          </nav>
-
-          <button
-            className='md:hidden'
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
-
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className='md:hidden bg-white border-t shadow-lg'>
-            <nav className='flex flex-col p-4 gap-4'>
-              <a
-                href='#products'
-                className='hover:text-amber-700 transition'
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Products
-              </a>
-              <a
-                href='#features'
-                className='hover:text-amber-700 transition'
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Features
-              </a>
-              <a
-                href='#testimonials'
-                className='hover:text-amber-700 transition'
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Reviews
-              </a>
-              <a
-                href='#contact'
-                className='bg-emerald-700 text-white px-6 py-2.5 rounded-lg hover:bg-emerald-800 transition text-center'
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Get Free Quote
-              </a>
-            </nav>
-          </div>
-        )}
-      </header>
 
       {/* Hero Section */}
       <section className='relative min-h-screen flex items-center justify-center bg-gradient-to-br from-amber-50 via-stone-100 to-emerald-50'>
@@ -392,7 +312,7 @@ export default function PVCDoorLanding() {
               )}
             </div>
             <p className='text-2xl text-stone-700 mb-6 italic'>
-              "{testimonials[activeTestimonial].text}"
+              &quot;{testimonials[activeTestimonial].text}&quot;
             </p>
             <p className='font-semibold text-lg'>
               — {testimonials[activeTestimonial].author},{' '}
@@ -455,74 +375,6 @@ export default function PVCDoorLanding() {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className='bg-stone-900 text-stone-300 py-12'>
-        <div className='max-w-7xl mx-auto px-4 sm:px-6'>
-          <div className='grid md:grid-cols-4 gap-8 mb-8'>
-            <div>
-              <h3 className='text-white text-xl font-bold mb-4'>
-                WoodLook PVC
-              </h3>
-              <p className='text-sm'>
-                Premium PVC doors with authentic wood finishes for modern homes.
-              </p>
-            </div>
-            <div>
-              <h4 className='text-white font-semibold mb-4'>Products</h4>
-              <ul className='space-y-2 text-sm'>
-                <li>
-                  <a href='#' className='hover:text-white transition'>
-                    Teak Finish
-                  </a>
-                </li>
-                <li>
-                  <a href='#' className='hover:text-white transition'>
-                    Walnut Finish
-                  </a>
-                </li>
-                <li>
-                  <a href='#' className='hover:text-white transition'>
-                    Oak Finish
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className='text-white font-semibold mb-4'>Company</h4>
-              <ul className='space-y-2 text-sm'>
-                <li>
-                  <a href='#' className='hover:text-white transition'>
-                    About Us
-                  </a>
-                </li>
-                <li>
-                  <a href='#' className='hover:text-white transition'>
-                    Warranty
-                  </a>
-                </li>
-                <li>
-                  <a href='#' className='hover:text-white transition'>
-                    FAQs
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className='text-white font-semibold mb-4'>Service Areas</h4>
-              <ul className='space-y-2 text-sm'>
-                <li>Kochi</li>
-                <li>Ernakulam</li>
-                <li>Thrissur</li>
-                <li>Nearby Regions</li>
-              </ul>
-            </div>
-          </div>
-          <div className='border-t border-stone-700 pt-8 text-center text-sm'>
-            <p>&copy; 2025 WoodLook PVC. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
     </div>
   )
 }
