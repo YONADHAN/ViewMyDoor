@@ -6,10 +6,6 @@ if (!MONGODB_URI) {
   throw new Error('❌ Please add your MongoDB URI to .env.local')
 }
 
-/**
- * Reuse the Mongoose connection between hot reloads in development
- * to avoid creating multiple connections.
- */
 let isConnected = false
 
 export const connectToDatabase = async () => {

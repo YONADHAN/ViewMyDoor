@@ -149,7 +149,7 @@ export default function PVCDoorLanding() {
               href='#contact'
               className='bg-emerald-700 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-emerald-800 transition shadow-lg'
             >
-              Get Free Quote
+              Search Your Doors
             </a>
             <a
               href='#products'

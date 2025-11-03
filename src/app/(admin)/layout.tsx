@@ -1,13 +1,12 @@
-import { getServerSession } from 'next-auth'
-import { redirect } from 'next/navigation'
-
 export default async function AdminLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
-  const session = await getServerSession()
-  if (!session || session.user.role !== 'admin') redirect('/unauthorized')
-
-  return <>{children}</>
+  return (
+    <div>
+      <div className='h-16 w-full'></div>
+      {children}
+    </div>
+  )
 }

@@ -421,43 +421,6 @@ export default function PVCDoorSearch() {
   return (
     <div className='min-h-screen bg-stone-50 text-stone-900'>
       {/* Header */}
-      <header
-        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-          isScrolled ? 'bg-white shadow-md py-3' : 'bg-white py-5'
-        }`}
-      >
-        <div className='max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between'>
-          <div className='text-2xl font-bold text-amber-800'>WoodLook PVC</div>
-
-          <nav className='hidden md:flex items-center gap-8'>
-            <a href='#' className='hover:text-amber-700 transition'>
-              Home
-            </a>
-            <a href='#' className='hover:text-amber-700 transition'>
-              Categories
-            </a>
-            <a
-              href='#'
-              className='hover:text-amber-700 transition font-semibold text-emerald-700'
-            >
-              Search
-            </a>
-            <a
-              href='#'
-              className='bg-emerald-700 text-white px-6 py-2.5 rounded-lg hover:bg-emerald-800 transition'
-            >
-              Get Quote
-            </a>
-          </nav>
-
-          <button
-            className='md:hidden'
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
-      </header>
 
       <div className='pt-24 pb-12'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6'>
